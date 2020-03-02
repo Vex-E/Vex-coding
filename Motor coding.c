@@ -1,3 +1,4 @@
+#pragma config(Sensor, in1,    linefollower,   sensorLineFollower)
 #pragma config(Motor,  port2,           backright,     tmotorVex269_MC29, openLoop, reversed)
 #pragma config(Motor,  port3,           topleft,       tmotorVex269_MC29, openLoop)
 #pragma config(Motor,  port4,           topright,      tmotorVex269_MC29, openLoop, reversed)
@@ -10,9 +11,18 @@ task main()
 		motor[topleft]=100;
 		motor[topright]=100;
 		motor[backleft]=100;
-		motor[backright]=100;
+		motor[backright]=100;	}
 
-	}
+		{while(SensorValue(touchSensor)=0
+			motor[topleft]=0;
+	    motor[topright]=0;}
+
+	   { int threshold=10;
+	    if(SensorValue(linefollower) <threshold)
+	    	motor[backright]=10;
+	      motor[backleft]=10; }
+
+
 
 
 
