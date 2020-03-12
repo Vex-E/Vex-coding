@@ -31,8 +31,3 @@ if(SensorValue(button) == false)
   motor(backleft)= vexRT[Ch2];
   // above is the teleop//
 }
-
-
-
-
-
